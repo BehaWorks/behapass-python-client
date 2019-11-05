@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **session_id** | **str** |  | 
+**user_id** | **str** |  | [optional] 
 **timestamp** | **float** |  | 
 **controller_id** | **str** |  | 
 **trigger** | **float** |  | [optional] 
