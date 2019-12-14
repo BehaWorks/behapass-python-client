@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_logger_record**](LoggerApi.md#get_logger_record) | **GET** /logger/ | 
 [**get_movement_record**](LoggerApi.md#get_movement_record) | **GET** /logger/movements | 
 [**post_logger_record**](LoggerApi.md#post_logger_record) | **POST** /logger/ | 
+[**post_lookup**](LoggerApi.md#post_lookup) | **POST** /logger/lookup | 
 
 
 # **get_button_record**
@@ -177,6 +178,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_lookup**
+> LookupResult post_lookup(payload, x_fields=x_fields)
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.LoggerApi()
+payload = swagger_client.LoggerRecord() # LoggerRecord | 
+x_fields = 'x_fields_example' # str | An optional fields mask (optional)
+
+try:
+    api_response = api_instance.post_lookup(payload, x_fields=x_fields)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling LoggerApi->post_lookup: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payload** | [**LoggerRecord**](LoggerRecord.md)|  | 
+ **x_fields** | **str**| An optional fields mask | [optional] 
+
+### Return type
+
+[**LookupResult**](LookupResult.md)
 
 ### Authorization
 

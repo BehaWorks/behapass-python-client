@@ -73,12 +73,14 @@ Class | Method | HTTP request | Description
 *LoggerApi* | [**get_logger_record**](docs/LoggerApi.md#get_logger_record) | **GET** /logger/ | 
 *LoggerApi* | [**get_movement_record**](docs/LoggerApi.md#get_movement_record) | **GET** /logger/movements | 
 *LoggerApi* | [**post_logger_record**](docs/LoggerApi.md#post_logger_record) | **POST** /logger/ | 
+*LoggerApi* | [**post_lookup**](docs/LoggerApi.md#post_lookup) | **POST** /logger/lookup | 
 
 
 ## Documentation For Models
 
  - [ButtonRecord](docs/ButtonRecord.md)
  - [LoggerRecord](docs/LoggerRecord.md)
+ - [LookupResult](docs/LookupResult.md)
  - [MovementRecord](docs/MovementRecord.md)
 
 

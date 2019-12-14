@@ -24,4 +24,5 @@ from swagger_client.configuration import Configuration
 # import models into sdk package
 from swagger_client.models.button_record import ButtonRecord
 from swagger_client.models.logger_record import LoggerRecord
+from swagger_client.models.lookup_result import LookupResult
 from swagger_client.models.movement_record import MovementRecord

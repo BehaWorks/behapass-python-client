@@ -185,6 +185,12 @@ class MovementRecord(object):
         """
         if controller_id is None:
             raise ValueError("Invalid value for `controller_id`, must not be `None`")  # noqa: E501
+        allowed_values = ["hmd", "controller-1", "controller-2"]  # noqa: E501
+        if controller_id not in allowed_values:
+            raise ValueError(
+                "Invalid value for `controller_id` ({0}), must be one of {1}"  # noqa: E501
+                .format(controller_id, allowed_values)
+            )
 
         self._controller_id = controller_id
 
