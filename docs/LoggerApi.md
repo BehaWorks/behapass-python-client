@@ -1,4 +1,4 @@
-# swagger_client.LoggerApi
+# behapass_client.LoggerApi
 
 All URIs are relative to *https://localhost/api*
 
@@ -20,12 +20,12 @@ Method | HTTP request | Description
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import behapass_client
+from behapass_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.LoggerApi()
+api_instance = behapass_client.LoggerApi()
 x_fields = 'x_fields_example' # str | An optional fields mask (optional)
 
 try:
@@ -65,12 +65,12 @@ No authorization required
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import behapass_client
+from behapass_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.LoggerApi()
+api_instance = behapass_client.LoggerApi()
 x_fields = 'x_fields_example' # str | An optional fields mask (optional)
 
 try:
@@ -110,12 +110,12 @@ No authorization required
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import behapass_client
+from behapass_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.LoggerApi()
+api_instance = behapass_client.LoggerApi()
 x_fields = 'x_fields_example' # str | An optional fields mask (optional)
 
 try:
@@ -155,13 +155,13 @@ No authorization required
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import behapass_client
+from behapass_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.LoggerApi()
-payload = swagger_client.LoggerRecord() # LoggerRecord | 
+api_instance = behapass_client.LoggerApi()
+payload = behapass_client.LoggerRecord() # LoggerRecord | 
 
 try:
     api_instance.post_logger_record(payload)
@@ -199,13 +199,13 @@ No authorization required
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import behapass_client
+from behapass_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.LoggerApi()
-payload = swagger_client.LoggerRecord() # LoggerRecord | 
+api_instance = behapass_client.LoggerApi()
+payload = behapass_client.LoggerRecord() # LoggerRecord | 
 x_fields = 'x_fields_example' # str | An optional fields mask (optional)
 
 try:
