@@ -2,9 +2,9 @@
 
 # flake8: noqa
 """
-    Logger
+    BehaPass
 
-    Logger API description  # noqa: E501
+    BehaPass API description  # noqa: E501
 
     OpenAPI spec version: 1.1
     
@@ -15,7 +15,11 @@
 from __future__ import absolute_import
 
 # import models into model package
+from behapass_client.models.bad_request_response import BadRequestResponse
 from behapass_client.models.button_record import ButtonRecord
 from behapass_client.models.logger_record import LoggerRecord
 from behapass_client.models.lookup_result import LookupResult
 from behapass_client.models.movement_record import MovementRecord
+from behapass_client.models.partial_registration_response import PartialRegistrationResponse
+from behapass_client.models.user_data import UserData
+from behapass_client.models.user_record import UserRecord

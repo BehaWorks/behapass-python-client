@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Logger
+    BehaPass
 
-    Logger API description  # noqa: E501
+    BehaPass API description  # noqa: E501
 
     OpenAPI spec version: 1.1
     
@@ -33,8 +33,105 @@ class LoggerApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def delete_register_user(self, user_id, **kwargs):  # noqa: E501
+        """Removes unfinished registration movements  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_register_user(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_register_user_with_http_info(user_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_register_user_with_http_info(user_id, **kwargs)  # noqa: E501
+            return data
+
+    def delete_register_user_with_http_info(self, user_id, **kwargs):  # noqa: E501
+        """Removes unfinished registration movements  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_register_user_with_http_info(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_register_user" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params or
+                params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `delete_register_user`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/logger/user/{user_id}/movements', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_button_record(self, **kwargs):  # noqa: E501
-        """get_button_record  # noqa: E501
+        """Returns all existing button records  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -55,7 +152,7 @@ class LoggerApi(object):
             return data
 
     def get_button_record_with_http_info(self, **kwargs):  # noqa: E501
-        """get_button_record  # noqa: E501
+        """Returns all existing button records  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -126,101 +223,8 @@ class LoggerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_logger_record(self, **kwargs):  # noqa: E501
-        """get_logger_record  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_logger_record(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str x_fields: An optional fields mask
-        :return: LoggerRecord
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_logger_record_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_logger_record_with_http_info(**kwargs)  # noqa: E501
-            return data
-
-    def get_logger_record_with_http_info(self, **kwargs):  # noqa: E501
-        """get_logger_record  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_logger_record_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str x_fields: An optional fields mask
-        :return: LoggerRecord
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['x_fields']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_logger_record" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-        if 'x_fields' in params:
-            header_params['X-Fields'] = params['x_fields']  # noqa: E501
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/logger/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='LoggerRecord',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def get_movement_record(self, **kwargs):  # noqa: E501
-        """get_movement_record  # noqa: E501
+        """Returns all recorded movements  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -241,7 +245,7 @@ class LoggerApi(object):
             return data
 
     def get_movement_record_with_http_info(self, **kwargs):  # noqa: E501
-        """get_movement_record  # noqa: E501
+        """Returns all recorded movements  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -312,8 +316,299 @@ class LoggerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_register_user(self, user_id, **kwargs):  # noqa: E501
+        """Returns all recorded movements  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_register_user(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_id: (required)
+        :param str x_fields: An optional fields mask
+        :return: MovementRecord
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_register_user_with_http_info(user_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_register_user_with_http_info(user_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_register_user_with_http_info(self, user_id, **kwargs):  # noqa: E501
+        """Returns all recorded movements  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_register_user_with_http_info(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_id: (required)
+        :param str x_fields: An optional fields mask
+        :return: MovementRecord
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'x_fields']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_register_user" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params or
+                params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `get_register_user`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+        if 'x_fields' in params:
+            header_params['X-Fields'] = params['x_fields']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/logger/user/{user_id}/movements', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='MovementRecord',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_user_data(self, user_id, **kwargs):  # noqa: E501
+        """Returns selected user's data  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_user_data(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_id: (required)
+        :return: UserRecord
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_user_data_with_http_info(user_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_user_data_with_http_info(user_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_user_data_with_http_info(self, user_id, **kwargs):  # noqa: E501
+        """Returns selected user's data  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_user_data_with_http_info(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_id: (required)
+        :return: UserRecord
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_user_data" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params or
+                params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `get_user_data`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/logger/user/{user_id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='UserRecord',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def logger_get(self, **kwargs):  # noqa: E501
+        """Returns all existing records  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.logger_get(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str x_fields: An optional fields mask
+        :return: LoggerRecord
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.logger_get_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.logger_get_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def logger_get_with_http_info(self, **kwargs):  # noqa: E501
+        """Returns all existing records  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.logger_get_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str x_fields: An optional fields mask
+        :return: LoggerRecord
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['x_fields']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method logger_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'x_fields' in params:
+            header_params['X-Fields'] = params['x_fields']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/logger/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='LoggerRecord',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def post_logger_record(self, payload, **kwargs):  # noqa: E501
-        """post_logger_record  # noqa: E501
+        """Stores received records  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -334,7 +629,7 @@ class LoggerApi(object):
             return data
 
     def post_logger_record_with_http_info(self, payload, **kwargs):  # noqa: E501
-        """post_logger_record  # noqa: E501
+        """Stores received records  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -410,7 +705,7 @@ class LoggerApi(object):
             collection_formats=collection_formats)
 
     def post_lookup(self, payload, **kwargs):  # noqa: E501
-        """post_lookup  # noqa: E501
+        """Identifies the user  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -419,7 +714,6 @@ class LoggerApi(object):
 
         :param async_req bool
         :param LoggerRecord payload: (required)
-        :param str x_fields: An optional fields mask
         :return: LookupResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -432,7 +726,7 @@ class LoggerApi(object):
             return data
 
     def post_lookup_with_http_info(self, payload, **kwargs):  # noqa: E501
-        """post_lookup  # noqa: E501
+        """Identifies the user  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -441,13 +735,12 @@ class LoggerApi(object):
 
         :param async_req bool
         :param LoggerRecord payload: (required)
-        :param str x_fields: An optional fields mask
         :return: LookupResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['payload', 'x_fields']  # noqa: E501
+        all_params = ['payload']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -474,8 +767,6 @@ class LoggerApi(object):
         query_params = []
 
         header_params = {}
-        if 'x_fields' in params:
-            header_params['X-Fields'] = params['x_fields']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -503,6 +794,208 @@ class LoggerApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='LookupResult',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def post_register_user(self, user_id, payload, **kwargs):  # noqa: E501
+        """Stores user data permanently once registered  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_register_user(user_id, payload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_id: (required)
+        :param MovementRecord payload: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.post_register_user_with_http_info(user_id, payload, **kwargs)  # noqa: E501
+        else:
+            (data) = self.post_register_user_with_http_info(user_id, payload, **kwargs)  # noqa: E501
+            return data
+
+    def post_register_user_with_http_info(self, user_id, payload, **kwargs):  # noqa: E501
+        """Stores user data permanently once registered  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_register_user_with_http_info(user_id, payload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_id: (required)
+        :param MovementRecord payload: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'payload']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method post_register_user" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params or
+                params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `post_register_user`")  # noqa: E501
+        # verify the required parameter 'payload' is set
+        if ('payload' not in params or
+                params['payload'] is None):
+            raise ValueError("Missing the required parameter `payload` when calling `post_register_user`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'payload' in params:
+            body_params = params['payload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/logger/user/{user_id}/movements', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def post_user_record(self, payload, **kwargs):  # noqa: E501
+        """Creates a new user ID  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_user_record(payload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param UserData payload: (required)
+        :return: UserRecord
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.post_user_record_with_http_info(payload, **kwargs)  # noqa: E501
+        else:
+            (data) = self.post_user_record_with_http_info(payload, **kwargs)  # noqa: E501
+            return data
+
+    def post_user_record_with_http_info(self, payload, **kwargs):  # noqa: E501
+        """Creates a new user ID  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_user_record_with_http_info(payload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param UserData payload: (required)
+        :return: UserRecord
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['payload']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method post_user_record" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'payload' is set
+        if ('payload' not in params or
+                params['payload'] is None):
+            raise ValueError("Missing the required parameter `payload` when calling `post_user_record`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'payload' in params:
+            body_params = params['payload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/logger/user', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='UserRecord',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

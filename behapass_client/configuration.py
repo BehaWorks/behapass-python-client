@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Logger
+    BehaPass
 
-    Logger API description  # noqa: E501
+    BehaPass API description  # noqa: E501
 
     OpenAPI spec version: 1.1
     

@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Logger
+    BehaPass
 
-    Logger API description  # noqa: E501
+    BehaPass API description  # noqa: E501
 
     OpenAPI spec version: 1.1
     
@@ -33,14 +33,14 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="Logger",
+    description="BehaPass",
     author_email="",
     url="",
-    keywords=["Swagger", "Logger"],
+    keywords=["Swagger", "BehaPass"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
-    Logger API description  # noqa: E501
+    BehaPass API description  # noqa: E501
     """
 )

@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Logger
+    BehaPass
 
-    Logger API description  # noqa: E501
+    BehaPass API description  # noqa: E501
 
     OpenAPI spec version: 1.1
     
@@ -31,24 +31,20 @@ class LookupResult(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'user_id': 'str',
-        'distance': 'float'
+        'user_id': 'str'
     }
 
     attribute_map = {
-        'user_id': 'user_id',
-        'distance': 'distance'
+        'user_id': 'user_id'
     }
 
-    def __init__(self, user_id=None, distance=None):  # noqa: E501
+    def __init__(self, user_id=None):  # noqa: E501
         """LookupResult - a model defined in Swagger"""  # noqa: E501
 
         self._user_id = None
-        self._distance = None
         self.discriminator = None
 
         self.user_id = user_id
-        self.distance = distance
 
     @property
     def user_id(self):
@@ -72,29 +68,6 @@ class LookupResult(object):
             raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
 
         self._user_id = user_id
-
-    @property
-    def distance(self):
-        """Gets the distance of this LookupResult.  # noqa: E501
-
-
-        :return: The distance of this LookupResult.  # noqa: E501
-        :rtype: float
-        """
-        return self._distance
-
-    @distance.setter
-    def distance(self, distance):
-        """Sets the distance of this LookupResult.
-
-
-        :param distance: The distance of this LookupResult.  # noqa: E501
-        :type: float
-        """
-        if distance is None:
-            raise ValueError("Invalid value for `distance`, must not be `None`")  # noqa: E501
-
-        self._distance = distance
 
     def to_dict(self):
         """Returns the model properties as a dict"""
